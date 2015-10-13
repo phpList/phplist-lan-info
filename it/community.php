@@ -10,7 +10,7 @@ if ($fp = @fopen ("http://www.phplist.com/files/LATESTVERSION","r")) {
   $thisversion = VERSION;
   $thisversion = str_replace("-dev","",$thisversion);
   if (versionCompare($thisversion,$latestversion)) {
-    print '<span class="highlight">Congratulazioni, state usando l'ultima versione</span>';
+    print '<span class="highlight">Congratulazioni, state usando l\'ultima versione</span>';
   } else {
     print '<span class="highlight">Non state usando l\'ultima versione</span>';
     print "<br/>La tua versione: <b>".$thisversion."</b>";
