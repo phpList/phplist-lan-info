@@ -12,7 +12,7 @@ if ($fp = @fopen ("http://www.phplist.com/files/LATESTVERSION","r")) {
   if (versionCompare($thisversion,$latestversion)) {
     print '<span class="highlight">Congratulazioni, state usando l'ultima versione</span>';
   } else {
-    print '<span class="highlight">Non state usando l'ultima versione</span>';
+    print '<span class="highlight">Non state usando l\'ultima versione</span>';
     print "<br/>La tua versione: <b>".$thisversion."</b>";
     print "<br/>Ultima versione: <b>".$latestversion."</b>  ";
     print '<a href="http://www.phplist.com/files/changelog">Visualizza cosa &egrave; cambiato</a>&nbsp;&nbsp;';
