@@ -3,23 +3,23 @@
 <p><b>Najnovija verzija</b><br/>
 Molimo proverite da li koristite najnoviju verziju pre prijave greške (bug-a).</p>
 <?php
-ini_set("user_agent",NAME. " (phplist version ".VERSION.")");
-ini_set("default_socket_timeout",5);
-if ($fp = @fopen ("http://www.phplist.com/files/LATESTVERSION","r")) {
-  $latestversion = fgets ($fp);
-  $thisversion = VERSION;
-  $thisversion = str_replace("-dev","",$thisversion);
-  if (versionCompare($thisversion,$latestversion)) {
-    print '<span class="highlight">Čestitamo, koristite najnoviju verziju</span>';
-  } else {
-    print '<span class="highlight">Ne koristite najnoviju verziju</span>';
-    print "<br/>Vaša verzija: <b>".$thisversion."</b>";
-    print "<br/>najnovija verzija: <b>".$latestversion."</b>  ";
-    print '<a href="http://www.phplist.com/files/changelog">Pregledajte izmene</a>&nbsp;&nbsp;';
-    print '<a href="http://www.phplist.com/files/phplist-'.$latestversion.'.tgz">Preuzmi</a>';
-  }
+ini_set('user_agent', NAME.' (phplist version '.VERSION.')');
+ini_set('default_socket_timeout', 5);
+if ($fp = @fopen('http://www.phplist.com/files/LATESTVERSION', 'r')) {
+    $latestversion = fgets($fp);
+    $thisversion = VERSION;
+    $thisversion = str_replace('-dev', '', $thisversion);
+    if (versionCompare($thisversion, $latestversion)) {
+        print '<span class="highlight">Čestitamo, koristite najnoviju verziju</span>';
+    } else {
+        print '<span class="highlight">Ne koristite najnoviju verziju</span>';
+        print '<br/>Vaša verzija: <b>'.$thisversion.'</b>';
+        print '<br/>najnovija verzija: <b>'.$latestversion.'</b>  ';
+        print '<a href="http://www.phplist.com/files/changelog">Pregledajte izmene</a>&nbsp;&nbsp;';
+        print '<a href="http://www.phplist.com/files/phplist-'.$latestversion.'.tgz">Preuzmi</a>';
+    }
 } else {
-  print "<br/>Proverite koja je najnovija verzija: <a href=http://www.phplist.com/files>ovde</a>";
+    print '<br/>Proverite koja je najnovija verzija: <a href=http://www.phplist.com/files>ovde</a>';
 }
 ?>
 <p><i>phplist</i> je napravljen rane 2000. godine kao mala aplikacija za
@@ -68,7 +68,7 @@ o njegovom postojanju. Verovatno ste uložili priličan trud da ga pronađete i 
 upoređivanja sa ostalim sličnim aplikacijama, pa možete pomoći drugim ljudima da iskoriste 
 vaše iskustvo.</p>
 
-<p>Da to uradite, možete <?php echo PageLink2("vote","Glasati")?> za phplist, ili napisati recenzije na
+<p>Da to uradite, možete <?php echo PageLink2('vote', 'Glasati')?> za phplist, ili napisati recenzije na
 sajtovima koji izlistavaju aplikacije. Možete takođe reći ostalim ljudima da znate o njemu.</p>
 </li>
 <li><p>Možete <b>Prevesti</b> phplist u vaš jezik i podneti prevod.
@@ -105,10 +105,12 @@ ili izveštaj o grešci (bug-u). Ako prijavljujete grešku, postarajte se da nav
 bi olakšali programerima u rešavanju problema.</p>
 <p>Minimalni zahtevi za prijavljivanje greške su detalji vašeg sistema:</p>
 
-<?php if (!stristr($_SERVER['HTTP_USER_AGENT'],'firefox')) { ?>
+<?php if (!stristr($_SERVER['HTTP_USER_AGENT'], 'firefox')) {
+    ?>
 <p>Ako imate problema, molimo probajte da koristite Firefox i vidite da li to rešava problem.
 <a href="http://www.spreadfirefox.com/?q=affiliates&amp;id=131358&amp;t=81"><img border="0" alt="Preuzmi Firefox!" title="Preuzmi Firefox!" src="images/getff.gif"/></a></p>
-<?php } ?>
+<?php 
+} ?>
 
 <p class="information">Detalji vašeg sistema su:</p>
 <div class="systemdetails">
@@ -117,12 +119,12 @@ bi olakšali programerima u rešavanju problema.</p>
 <li>PHP verzija: <?php echo phpversion()?></li>
 <li>Veb čitač: <?php echo $_SERVER['HTTP_USER_AGENT']?></li>
 <li>Veb server: <?php echo $_SERVER['SERVER_SOFTWARE']?></li>
-<li>Veb sajt: <a href="http://<?php echo getConfig("website")."$pageroot"?>"><?php echo getConfig("website")."$pageroot"?></a></li>
+<li>Veb sajt: <a href="http://<?php echo getConfig('website')."$pageroot"?>"><?php echo getConfig('website')."$pageroot"?></a></li>
 <li>Mysql Info: <?php echo mysql_get_server_info();?></li>
 <li>PHP moduli:<br/><ul class="modules">
 <?php
 $le = get_loaded_extensions();
-foreach($le as $module) {
+foreach ($le as $module) {
     print "         <li>$module</li>";
 }
 ?>
